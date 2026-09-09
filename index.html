@@ -610,54 +610,10 @@
       margin-top: 2px;
     }
 
-    /* Bottom Quick Action Bar */
-    .bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--card-bg);
-      border-top: 1px solid var(--border);
-      padding: 8px 16px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 100;
-      padding-bottom: max(8px, env(safe-area-inset-bottom));
-    }
-
-    .bbar-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 0.72rem;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-
-    .bbar-btn.active {
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    [data-theme="dark"] .bbar-btn.active {
-      color: #60a5fa;
-    }
-
-    .bbar-icon {
-      font-size: 1.15rem;
-    }
-
     /* Toast Notification */
     .toast {
       position: fixed;
-      bottom: 64px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
       background: #0f172a;
@@ -739,7 +695,6 @@
     <div class="day-selector" id="daySelector" role="tablist">
       <button class="day-btn active" data-day="day1" role="tab" aria-selected="true">1. GÜN (2 Saat)</button>
       <button class="day-btn" data-day="day2" role="tab" aria-selected="false">2. GÜN (2 Saat)</button>
-      <button class="day-btn" data-day="both" role="tab" aria-selected="false">İki Gün Birlikte</button>
     </div>
 
     <!-- Dynamic Cards Display -->
@@ -747,26 +702,6 @@
       <!-- Injected by JS -->
     </div>
   </main>
-
-  <!-- Bottom Navigation Bar -->
-  <div class="bottom-bar">
-    <button class="bbar-btn active" id="navHome">
-      <span class="bbar-icon">📖</span>
-      <span>Kılavuz</span>
-    </button>
-    <button class="bbar-btn" id="navGradeFormula">
-      <span class="bbar-icon">⚖️</span>
-      <span>Not Baremi</span>
-    </button>
-    <button class="bbar-btn" id="navSummary">
-      <span class="bbar-icon">📋</span>
-      <span>Eleme Tablosu</span>
-    </button>
-    <button class="bbar-btn" id="navPrint">
-      <span class="bbar-icon">🖨️</span>
-      <span>Yazdır</span>
-    </button>
-  </div>
 
   <!-- Search Results Overlay Modal -->
   <div class="search-results-overlay" id="searchOverlay">
@@ -777,19 +712,6 @@
       </div>
       <div id="searchResultsList">
         <!-- Results injected here -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Info Modal (Not Baremi / Eleme) -->
-  <div class="search-results-overlay" id="infoModal">
-    <div class="search-results-card">
-      <div class="src-header">
-        <strong id="infoModalTitle">Bilgilendirme</strong>
-        <button class="icon-btn" id="closeInfoModal" style="color: var(--text); background: var(--bg);">✕</button>
-      </div>
-      <div id="infoModalBody" style="font-size: 0.88rem; line-height: 1.5;">
-        <!-- Injected -->
       </div>
     </div>
   </div>
@@ -822,10 +744,6 @@
     const closeSearchModal = document.getElementById('closeSearchModal');
     const searchResultsList = document.getElementById('searchResultsList');
     const toast = document.getElementById('toast');
-    const infoModal = document.getElementById('infoModal');
-    const closeInfoModal = document.getElementById('closeInfoModal');
-    const infoModalTitle = document.getElementById('infoModalTitle');
-    const infoModalBody = document.getElementById('infoModalBody');
 
     // Init Theme
     const savedTheme = localStorage.getItem('tde_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -888,11 +806,10 @@
 
       // Render Day Content
       let html = '';
-      if (currentDayMode === 'day1' || currentDayMode === 'both') {
-        html += renderDayCard(w, 'day1', '1. GÜN');
-      }
-      if (currentDayMode === 'day2' || currentDayMode === 'both') {
-        html += renderDayCard(w, 'day2', '2. GÜN');
+      if (currentDayMode === 'day1') {
+        html += renderDayCard(w, 'day1', '1. GÜN (2 Saat)');
+      } else {
+        html += renderDayCard(w, 'day2', '2. GÜN (2 Saat)');
       }
       dayContentArea.innerHTML = html;
 
@@ -1131,60 +1048,6 @@
       searchOverlay.style.display = 'none';
       renderView();
     };
-
-    // Bottom Navigation Handlers
-    document.getElementById('navHome').addEventListener('click', () => {
-      infoModal.style.display = 'none';
-    });
-
-    document.getElementById('navGradeFormula').addEventListener('click', () => {
-      infoModalTitle.textContent = "MEB Dönem Puanı Hesaplama Formülü";
-      infoModalBody.innerHTML = `
-        <div style="background: var(--primary-subtle); padding: 12px; border-radius: 8px; margin-bottom: 12px; font-weight: bold; color: var(--primary);">
-          Dönem Puanı = (Yazılı Sınav × 0,70) + (Dinleme Sınavı × 0,15) + (Konuşma Sınavı × 0,15)
-        </div>
-        <p><strong>1. Sınav Dönemi (9. Hafta):</strong></p>
-        <ul style="padding-left: 18px; margin-bottom: 10px;">
-          <li>Yazılı Sınav (%70): Açık uçlu ortak sınav.</li>
-          <li>Dinleme Sınavı (%15): 6. haftadaki "Mercan Kız" masal tahlili.</li>
-          <li>Konuşma Sınavı (%15): 5. haftada yapılan <em>Şiir Dinletisi</em> sunumu.</li>
-        </ul>
-        <p><strong>2. Sınav Dönemi (17. Hafta):</strong></p>
-        <ul style="padding-left: 18px; margin-bottom: 10px;">
-          <li>Yazılı Sınav (%70): 2. Tema ortak sınavı.</li>
-          <li>Dinleme Sınavı (%15): 14. haftadaki Edebî Söyleşi tahlili.</li>
-          <li>Konuşma Sınavı (%15): 16. haftada üretilen <em>Edebî Şahsiyet Podcasti</em>.</li>
-        </ul>
-        <div style="background: var(--emerald-subtle); padding: 10px; border-radius: 6px; font-size: 0.8rem; color: var(--emerald);">
-          ✓ Bu sistem sayesinde sınıfta ayrıyeten tek tek öğrenci dinleyip konuşma sınavı yükü çekmezsiniz; atölye ürünleri doğrudan resmi not baremidir.
-        </div>
-      `;
-      infoModal.style.display = 'block';
-    });
-
-    document.getElementById('navSummary').addEventListener('click', () => {
-      infoModalTitle.textContent = "Kitap Etkinlik Eleme Özeti";
-      infoModalBody.innerHTML = `
-        <p>Meslek Lisesi ve 4 saatlik ders yapısına göre kitaptan ayıklananlar:</p>
-        <ul style="padding-left: 18px; margin-top: 8px; font-size: 0.82rem; line-height: 1.6;">
-          <li><strong>s. 22-25:</strong> Ağır Venn şemaları ve Lisan şiiri analizi elendi (Tahtada 4 ana farkla özetlendi).</li>
-          <li><strong>s. 31-38:</strong> Sagu, Şarkımız vb. 4 farklı yan metin analizi elendi.</li>
-          <li><strong>s. 47-53:</strong> Uzun Çayır Çimen varyant tabloları atlandı (Sözlü anlatıldı).</li>
-          <li><strong>s. 67-68:</strong> Gezi yazısı ile masal karşılaştırması elendi.</li>
-          <li><strong>s. 98-111:</strong> Kaside ve 5 farklı divan şiiri yan metin analizi elendi (Su Kasidesi'nden sadece 2 beyit alındı).</li>
-          <li><strong>s. 137-145:</strong> Suyu Arayan Adam karşılaştırma metinleri elendi.</li>
-        </ul>
-      `;
-      infoModal.style.display = 'block';
-    });
-
-    document.getElementById('navPrint').addEventListener('click', () => {
-      window.print();
-    });
-
-    closeInfoModal.addEventListener('click', () => {
-      infoModal.style.display = 'none';
-    });
 
     // Keyboard navigation (desktop support)
     window.addEventListener('keydown', (e) => {

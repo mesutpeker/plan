@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tde10-kilavuz-v1';
+const CACHE_NAME = 'tde10-kilavuz-v2';
 const ASSETS = [
   './',
   './index.html',

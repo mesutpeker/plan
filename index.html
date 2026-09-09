@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>10. Sınıf TDE • Meslek Lisesi Öğretim Kılavuzu</title>
+  <meta name="description" content="10. Sınıf Türk Dili ve Edebiyatı Meslek Lisesi 1. Dönem Mobil Ders Kılavuzu (Haftalık 4 Saat / 2+2 Blok)">
+  <meta name="theme-color" content="#1B365D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="TDE10 Kılavuz">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      --primary: #1B365D;
+      --primary-light: #2563eb;
+      --primary-subtle: #eff6ff;
+      --teal: #0d9488;
+      --teal-subtle: #f0fdfa;
+      --amber: #b45309;
+      --amber-subtle: #fffbeb;
+      --amber-border: #fde68a;
+      --red: #b91c1c;
+      --red-subtle: #fef2f2;
+      --red-border: #fecaca;
+      --emerald: #047857;
+      --emerald-subtle: #ecfdf5;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --primary-subtle: #1e3a8a33;
+      --teal-subtle: #134e4a33;
+      --amber-subtle: #78350f33;
+      --amber-border: #92400e;
+      --red-subtle: #7f1d1d33;
+      --red-border: #991b1b;
+      --emerald-subtle: #064e3b33;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1B365D 0%, #1e40af 100%);
+      color: white;
+      padding: 14px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+      padding-top: max(14px, env(safe-area-inset-top));
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .app-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .app-subtitle {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.92);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Search Bar */
+    .search-wrapper {
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 8px 36px 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      outline: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: white;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      display: none;
+      opacity: 0.7;
+    }
+
+    /* Weeks Navigation Scroll Bar */
+    .weeks-nav-container {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 12px;
+      position: sticky;
+      top: 58px;
+      z-index: 90;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      gap: 6px;
+    }
+
+    .weeks-nav-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .week-pill {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.75rem;
+      min-width: 58px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .week-pill .wp-num {
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .week-pill .wp-date {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .week-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 2px 6px rgba(27, 54, 93, 0.3);
+    }
+
+    .week-pill.active .wp-date {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .week-pill.current-today {
+      border: 2px solid #e11d48;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 768px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 12px 14px 20px;
+    }
+
+    /* Week Info Header Card */
+    .week-hero {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wh-info {
+      flex: 1;
+    }
+
+    .wh-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .wh-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .wh-dates {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wh-nav-arrows {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-arrow-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .nav-arrow-btn:active {
+      background: var(--border);
+    }
+
+    /* Day Switcher Segmented Control */
+    .day-selector {
+      display: flex;
+      background: var(--border);
+      padding: 3px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      position: sticky;
+      top: 116px;
+      z-index: 80;
+      box-shadow: var(--shadow);
+    }
+
+    .day-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px 4px;
+      border-radius: 9px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .day-btn.active {
+      background: var(--card-bg);
+      color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .day-btn.active {
+      color: #60a5fa;
+    }
+
+    /* Day Content Card */
+    .day-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      gap: 8px;
+    }
+
+    .dc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .dc-hours-badge {
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    [data-theme="dark"] .dc-hours-badge {
+      color: #93c5fd;
+    }
+
+    /* Pages Badge */
+    .pages-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-subtle);
+      color: var(--teal);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    [data-theme="dark"] .pages-pill {
+      color: #2dd4bf;
+    }
+
+    /* Section Blocks */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .steps-list {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+
+    .steps-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .steps-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: var(--primary-light);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* Elimination / Warning Box */
+    .elimination-box {
+      background: var(--red-subtle);
+      border-left: 4px solid var(--red);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .elimination-box .eb-title {
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Creative Workshop Card */
+    .creative-box {
+      background: var(--emerald-subtle);
+      border: 1px solid rgba(4, 120, 87, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .creative-box .cb-title {
+      font-weight: 700;
+      color: var(--emerald);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    [data-theme="dark"] .creative-box .cb-title {
+      color: #34d399;
+    }
+
+    .creative-box .cb-desc {
+      font-size: 0.83rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .copy-btn {
+      background: white;
+      border: 1px solid rgba(4, 120, 87, 0.3);
+      color: var(--emerald);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .copy-btn {
+      background: #064e3b;
+      color: #a7f3d0;
+    }
+
+    /* Interactive Checklist */
+    .checklist-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      user-select: none;
+    }
+
+    .check-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 3px;
+      width: 15px;
+      height: 15px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .check-item.done span {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    /* Search Results Modal / Overlay */
+    .search-results-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      padding: 16px;
+      overflow-y: auto;
+      backdrop-filter: blur(4px);
+    }
+
+    .search-results-card {
+      max-width: 600px;
+      margin: 40px auto 0;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .src-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .src-item {
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .src-item:active {
+      background: var(--primary-subtle);
+    }
+
+    .src-item-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary);
+    }
+
+    .src-item-snippet {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Bottom Quick Action Bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+      padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
+
+    .bbar-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .bbar-btn.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .bbar-btn.active {
+      color: #60a5fa;
+    }
+
+    .bbar-icon {
+      font-size: 1.15rem;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 64px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #0f172a;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 300;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Print Styles */
+    @media print {
+      header, .weeks-nav-container, .day-selector, .bottom-bar, .wh-nav-arrows {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .day-card {
+        page-break-inside: avoid;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div>
+        <div class="app-title">10. Sınıf TDE • Meslek Lisesi</div>
+        <div class="app-subtitle">Maarif Modeli • 4 Saat (2+2 Blok) Mobil Kılavuz</div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeBtn" title="Karanlık / Aydınlık Mod" aria-label="Tema Değiştir">🌓</button>
+        <button class="icon-btn" id="todayBtn" title="Bu Haftaya Git" aria-label="Bu Hafta">📍</button>
+      </div>
+    </div>
+    
+    <div class="search-wrapper">
+      <input type="text" class="search-input" id="searchInput" placeholder="Konu, etkinlik, şair veya kavram ara... (örn: masal, gazel)">
+      <button class="search-clear" id="searchClear">✕</button>
+    </div>
+  </header>
+
+  <!-- Horizontal Week Selector -->
+  <nav class="weeks-nav-container" id="weeksNav" aria-label="Hafta Seçici">
+    <!-- Populated by JS -->
+  </nav>
+
+  <!-- Main View -->
+  <main id="mainContainer">
+    <!-- Week Hero Card -->
+    <div class="week-hero" id="weekHero">
+      <div class="wh-info">
+        <span class="wh-badge" id="whBadge">1. TEMA</span>
+        <div class="wh-title" id="whTitle">1. Hafta</div>
+        <div class="wh-dates" id="whDates">📅 14 - 18 Eylül 2026</div>
+      </div>
+      <div class="wh-nav-arrows">
+        <button class="nav-arrow-btn" id="prevWeekBtn" title="Önceki Hafta" aria-label="Önceki Hafta">‹</button>
+        <button class="nav-arrow-btn" id="nextWeekBtn" title="Sonraki Hafta" aria-label="Sonraki Hafta">›</button>
+      </div>
+    </div>
+
+    <!-- Day Selector Tabs -->
+    <div class="day-selector" id="daySelector" role="tablist">
+      <button class="day-btn active" data-day="day1" role="tab" aria-selected="true">1. GÜN (2 Saat)</button>
+      <button class="day-btn" data-day="day2" role="tab" aria-selected="false">2. GÜN (2 Saat)</button>
+      <button class="day-btn" data-day="both" role="tab" aria-selected="false">İki Gün Birlikte</button>
+    </div>
+
+    <!-- Dynamic Cards Display -->
+    <div id="dayContentArea">
+      <!-- Injected by JS -->
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-bar">
+    <button class="bbar-btn active" id="navHome">
+      <span class="bbar-icon">📖</span>
+      <span>Kılavuz</span>
+    </button>
+    <button class="bbar-btn" id="navGradeFormula">
+      <span class="bbar-icon">⚖️</span>
+      <span>Not Baremi</span>
+    </button>
+    <button class="bbar-btn" id="navSummary">
+      <span class="bbar-icon">📋</span>
+      <span>Eleme Tablosu</span>
+    </button>
+    <button class="bbar-btn" id="navPrint">
+      <span class="bbar-icon">🖨️</span>
+      <span>Yazdır</span>
+    </button>
+  </div>
+
+  <!-- Search Results Overlay Modal -->
+  <div class="search-results-overlay" id="searchOverlay">
+    <div class="search-results-card">
+      <div class="src-header">
+        <strong id="searchResultCount">Arama Sonuçları</strong>
+        <button class="icon-btn" id="closeSearchModal" style="color: var(--text); background: var(--bg);">✕</button>
+      </div>
+      <div id="searchResultsList">
+        <!-- Results injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Modal (Not Baremi / Eleme) -->
+  <div class="search-results-overlay" id="infoModal">
+    <div class="search-results-card">
+      <div class="src-header">
+        <strong id="infoModalTitle">Bilgilendirme</strong>
+        <button class="icon-btn" id="closeInfoModal" style="color: var(--text); background: var(--bg);">✕</button>
+      </div>
+      <div id="infoModalBody" style="font-size: 0.88rem; line-height: 1.5;">
+        <!-- Injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Metin kopyalandı!</div>
+
+  <script>
+    // Embedded Data
+    const WEEKS_DATA = [{"id": 1, "weekNumber": 1, "dateRange": "14 - 18 Eylül 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Başlangıç", "day1": {"title": "Edebiyat, Müzik ve Ezgi İlişkisi; Şiire Giriş & Tamlamalar", "hours": "2 Ders Saati", "pages": "Sayfa 12 - 15", "steps": ["Ders Kitabı s. 12-13 açılır. Âşık Ruhsatî'nin 'Daha Senden Gayrı Âşık mı Yoktur' koşması okunur, karekoddaki ezgi sınıfa dinletilir.", "'Söz müzikle buluşunca insanda ne hissettirir?' sorusuyla beyin fırtınası yapılır.", "Kitap s. 14-15'teki şiir bilgi görseli incelenir. Dize, bent, tema ve ahenk kavramları sezdirilir.", "İsim ve sıfat tamlamaları (deli gönül, Âdem devri, mezaristan) dize üstünde tespit edilir; s. 15'teki boşluk doldurma tamamlanır."], "elimination": "Kitap başındaki uzun akademik açıklamaları tek tek okutmayın; karekod ezgisi üzerinden öğrencilerin duyguyu hissetmesini sağlayın.", "creative": {"title": "Gönlün Çalma Listesi Mini Yazısı", "desc": "Öğrencilere 'Şu anki ruh halinizi tek bir şarkıyla anlatsaydınız nakaratı ne olurdu?' sorusu yöneltilir. İçinde en az 1 isim ve 1 sıfat tamlaması geçen 3 cümlelik mikro yansıtma yazdırılır."}, "checklist": ["Ruhsatî koşması seslendirildi ve karekoddaki türkü dinletildi", "İsim ve sıfat tamlamaları dize üzerinde gösterildi", "Sayfa 15'teki temel şiir kavramları dolduruldu"]}, "day2": {"title": "İslamiyet Öncesi Sözlü Miras: Koşuk", "hours": "2 Ders Saati", "pages": "Sayfa 16 - 20", "steps": ["Ders Kitabı s. 16-18 açılır. Sayfa 16'daki görsellerle doğa-insan bağı yorumlanır.", "İslamiyet öncesi 'Kulan tükel komıttı...' koşuğu tahtaya yansıtılır; kam/baksıların kopuz eşliğindeki icra geleneği anlatılır.", "Orijinal metin ile günümüz Türkçesi eşleştirilerek okunur.", "Kitap s. 19-20'deki 'Söz Varlığımız' tablosu (eski sözcüklerin anlam değişimi) rehberli çözülür."], "elimination": "Tüm arkaik kelimeleri ezberletmeye çalışmayın; günümüz Türkçesiyle örtüşen 3-4 kilit kelime (kulan, yay, tag) üzerinden dilin değişim mantığını kavratın.", "creative": {"title": "Zaman Yolcusu Sözlük (Modern Atölye Koşuğu)", "desc": "Koşuktan seçilen 3 arkaik sözcük (kulan, arkar, komıt-) meslek lisesi atölye jargonuna (motor, torna, bilgisayar tezgâhı) mizahi olarak uyarlanır; 2 dizelik 'Modern Atölye Koşuğu' yazdırılır."}, "checklist": ["Koşuk metni orijinal ve günümüz Türkçesiyle karşılaştırıldı", "Kopuz eşliğinde sözlü şiir geleneği fark ettirildi", "Sayfa 19-20'deki söz varlığı tablosu tamamlandı"]}}, {"id": 2, "weekNumber": 2, "dateRange": "21 - 25 Eylül 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Ahenk & Yapı", "day1": {"title": "Koşukta Biçim, Ahenk ve Yapı Unsurları", "hours": "2 Ders Saati", "pages": "Sayfa 21, 26, 28", "steps": ["Ders Kitabı s. 21, 26 ve 28 açılır.", "Koşuğun dörtlük birimi, 7'li hece ölçüsü, durakları ve 'aaab' uyak örgüsü tahtada somut dizeler üzerinden çözümlenir.", "Kitap s. 28'deki dil ve anlatım tablosu doldurulur."], "elimination": "Sayfa 22-25'teki ağır Venn şemaları ve 'Lisan' şiiri tahlili zaman kazanmak için atlanır; doğrudan ritim kavramı tahtada özetlenir.", "creative": {"title": "Ritim Tahtası (Sıralarda Tempo Tutma)", "desc": "7'li hece ölçüsünün ritmini kavramak için sıralara hafif vuruşlarla tempo tutulur. Öğrencilere 7 heceli tek bir dörtlük (sınıf ortamını anlatan gözlem dörtlüğü) yazdırılır."}, "checklist": ["Dörtlük, 7'li hece ölçüsü ve kafiye/redif tahtada şematize edildi", "Sayfa 28'deki dil tablosu dolduruldu"]}, "day2": {"title": "Koşuk ile Koşmanın Karşılaştırılması & Tamlamalar", "hours": "2 Ders Saati", "pages": "Sayfa 27, 29 - 30", "steps": ["Ders Kitabı s. 27 'Karşılaştıralım' tablosu uygulanır.", "İslamiyet öncesi koşuk ile âşık edebiyatı koşması tahtada iki sütunda kıyaslanır (Dil sadeliği, tema, kopuz vs. bağlama).", "Sayfa 29-30'daki tamlama etkinliklerinden seçme 5 pratik örnek çözülür.", "4. haftada yapılacak Şiir Dinletisi yönergesi dağıtılır."], "elimination": "Sayfa 31-38 arasındaki Sagu, Şarkımız vb. 4 yan şiir analizi elenir; öğrenciye gereksiz metin yığını oluşturulmaz.", "creative": {"title": "Kopuzdan Bağlamaya Atışma", "desc": "İslamiyet öncesi bir alp/ozan ile günümüz meslek liseli bir gencin karşılıklı 4 dizelik atışması kurgulanır."}, "checklist": ["Koşuk ve koşma arasındaki 4 temel fark tahtaya yazıldı", "İsim ve sıfat tamlaması örnekleri çözüldü", "Şiir dinletisi için şiir seçimi duyuruldu"]}}, {"id": 3, "weekNumber": 3, "dateRange": "28 Eylül - 02 Ekim 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Halk Ezgileri", "day1": {"title": "Anonim Halk Edebiyatı: Türkü (Turnalar)", "hours": "2 Ders Saati", "pages": "Sayfa 39 - 45", "steps": ["Ders Kitabı s. 39-45 açılır.", "Sayfa 41-42'deki karekoddan 'Turnalar' türküsü dinletilir. Turna kuşunun haberci motifi, gurbet ve hasret temaları tartışılır.", "Türkünün bent (asıl bölüm) ve kavuştak (nakarat) bölümleri, hece ritmi incelenir.", "Sayfa 44'teki söz varlığı ve deyim soruları yanıtlanır."], "elimination": "Ayrıntılı yöresel türkü şemaları yerine doğrudan türkünün söz-müzik ahengine ve bent/kavuştak yapısına odaklanılır.", "creative": {"title": "Turnaya Yazılan Mikro Mektup", "desc": "'Bugün bir turnanın kanadına bir memleket veya özlem notu iliştirseydiniz kime, ne yazardınız?' 3 cümlelik samimi bir mikro mektup yazdırılır."}, "checklist": ["Turnalar türküsü dinletildi ve gurbet motifi tartışıldı", "Bent ve kavuştak (nakarat) bölümleri gösterildi", "Sayfa 44'teki söz varlığı tamamlandı"]}, "day2": {"title": "Türkü ile Ninninin Kardeşliği & Sözlü Kültürde Ezgi", "hours": "2 Ders Saati", "pages": "Sayfa 46", "steps": ["Ders Kitabı s. 46 'Atem Tutam Men Seni' ninnisi okunur/dinlenir.", "Ninni ile türkü arasındaki anne şefkati, koruma ve ritmik yatıştırıcılık unsurları karşılaştırılır."], "elimination": "Sayfa 47-53 arasındaki uzun varyant tabloları ('Çayır Çimen Geze Geze') atlanır; varyant kavramı güncel türküler üzerinden sözlü olarak 10 dakikada özetlenir.", "creative": {"title": "Atölye Manisi / Çırak Ninnisi", "desc": "Öğrencilerin kendi meslek alanlarındaki yorgunluk veya ustalık hikâyelerine dair esprili 2 dizelik bir mani/ninni yazması istenir."}, "checklist": ["Ninni ve türkü ritmi karşılaştırıldı", "Varyant kavramı güncel örneklerle kavratıldı"]}}, {"id": 4, "weekNumber": 4, "dateRange": "05 - 09 Ekim 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Atölye Hazırlık", "day1": {"title": "Edebiyat Atölyesi (Konuşma): Şiir Dinletisine Hazırlık", "hours": "2 Ders Saati", "pages": "Sayfa 54 - 56", "steps": ["Ders Kitabı s. 54-56 açılır.", "Şiir seslendirmede diksiyon, nefes kontrolü, ses tonunu ayarlama ve durak vurguları örnek dize üzerinde modellenir.", "Öğrencilerin seçtiği şiirler gözden geçirilir; fon müziği seçimi planlanır."], "elimination": "Teorik diksiyon metinlerini ezberletmeyin; doğrudan nefes ve tonlama pratiği yaptırın.", "creative": {"title": "Duygu Renkleri (Ses Partisyonu)", "desc": "Öğrenciler şiir kâğıtlarına renkli kalemlerle vurgu yerlerini (yükselen ses: kırmızı ok, durak: //, fısıltı: mavi çizgi) işaretleyerek kendi ses haritasını çıkarır."}, "checklist": ["Diksiyon ve tonlama kuralları tahtada örneklendi", "Her öğrencinin şiiri ve fon müziği netleştirildi"]}, "day2": {"title": "Dinleti Sınıf İçi Provası ve Eşli Geri Bildirim", "hours": "2 Ders Saati", "pages": "Sayfa 56 - 57", "steps": ["Ders Kitabı s. 56-57 incelenir.", "Öğrenciler ikişerli eşleşerek birbirlerine prova okuması yapar.", "Sayfa 57'deki Akran Değerlendirme Formu kriterleri (Beden dili, vurgu-tonlama, zamanlama) açıklanır; sınıf dinleti düzenine getirilir."], "elimination": "Formalitelerle vakit kaybetmeyin; öğrencilerin heyecanını yatıştırıcı pratik provalara odaklanın.", "creative": {"title": "Ayna ve Sahne Duruşu", "desc": "Ayağa kalkılarak diyafram nefesi ve sahne duruşu egzersizi yapılır; heyecanı yönetme tüyoları paylaşılır."}, "checklist": ["Eşli okuma provaları tamamlandı", "Akran değerlendirme ölçütleri açıklandı"]}}, {"id": 5, "weekNumber": 5, "dateRange": "12 - 16 Ekim 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Dinleti & Sınav", "day1": {"title": "Şiir Dinletisi Sunumları (1. Grup)", "hours": "2 Ders Saati", "pages": "Sayfa 56 - 57", "steps": ["Sınıf ışıkları hafif karartılır, tahtada tematik görsel ve fon müziği açılır.", "Öğrencilerin ilk yarısı şiirlerini sınıf sahnesinde seslendirir.", "Dinleyiciler s. 57'deki akran değerlendirme formlarını doldurur.", "★ NOT: Bu performans 1. Dönem Konuşma Sınavı (%15) olarak notlandırılır."], "elimination": "Ayrı bir konuşma sınavı günü yapmayın; dinleti performansı doğrudan mevzuat notuna dönüştürülür.", "creative": {"title": "Şiir Kürsüsü Özgüveni", "desc": "Meslek lisesi gencinin kürsü cesaretini artırmak için her sunum sonrası sınıfça alkışlanır ve 1 olumlu yapıcı cümle söylenir."}, "checklist": ["1. grup şiir sunumları dinlendi", "Öğretmen rubriği puanlandı", "Akran değerlendirme formları toplandı"]}, "day2": {"title": "Şiir Dinletisi Sunumları (2. Grup) & Yansıtma", "hours": "2 Ders Saati", "pages": "Sayfa 57", "steps": ["Kalan öğrencilerin şiir sunumları tamamlanır.", "Ders Kitabı s. 57'deki 'Çıkış Kartı' doldurulur.", "Öğretmen puanlama anahtarı üzerinden genel geri bildirim verir."], "elimination": "Olumsuz eleştirilerden kaçının; konuşma becerisini cesaretlendiren dönütler verin.", "creative": {"title": "Mikrofondaki Ben (Çıkış Kartı)", "desc": "'Kürsüye çıkmadan önceki korkum neydi, indikten sonra kendimde neyi keşfettim?' sorusuna 2 cümlelik samimi bir öz yansıtma yazdırılır."}, "checklist": ["Tüm sunumlar tamamlandı", "Sayfa 57 Çıkış Kartı dolduruldu", "Konuşma not baremi kapatıldı"]}}, {"id": 6, "weekNumber": 6, "dateRange": "19 - 23 Ekim 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Masal Tahlili", "day1": {"title": "Dinleme/İzleme: Masal Türü ve 'Mercan Kız'", "hours": "2 Ders Saati", "pages": "Sayfa 58 - 63", "steps": ["Ders Kitabı s. 58-63 açılır. Masalların hayal gücü ve ahlaki değer aktarımındaki yeri tartışılır.", "Sayfa 62-63'teki karekoddan Eflâtun Cem Güney'in 'Mercan Kız' masalı dinletilir/izletilir.", "Öğrenciler dinlerken olayları, kahramanları ve olağanüstülükleri not alır."], "elimination": "Öğrencileri uzun metin okumasıyla yormayın; masalı karekod üzerinden sesli/görsel dinletin.", "creative": {"title": "Tekerleme Avı ve Üretimi", "desc": "Masaldaki tekerlemeler incelenir. Öğrencilerden kendi uyduracakları 2 cümlelik mizahi bir tekerleme yazmaları istenir."}, "checklist": ["Mercan Kız masalı karekoddan dinletildi", "Olağanüstü unsurlar ve tekerlemeler belirlendi"]}, "day2": {"title": "Masalın Yapı Unsurları ve Masal Planı", "hours": "2 Ders Saati", "pages": "Sayfa 64 - 69", "steps": ["Ders Kitabı s. 64-69 incelenir.", "Mercan Kız masalının döşeme, serim, düğüm, çözüm ve dilek bölümleri tahtaya çıkarılır.", "Sayfa 64'teki deyimler ve kalıp sözler çözümlenir."], "elimination": "Sayfa 67-68'deki gezi yazısı ile masal karşılaştırması atlanır; doğrudan olay akışına odaklanılır.", "creative": {"title": "Karakter Kimlik Kartı", "desc": "Mercan Kız ve Dev Anası için birer oyun/film karakter profili kartı (güçleri, zaafları, görevi) tasarlanır."}, "checklist": ["Masalın 5 bölümü tahtaya şematize edildi", "Deyimler ve söz varlığı çözüldü"]}}, {"id": 7, "weekNumber": 7, "dateRange": "26 - 30 Ekim 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Film Şeridi (Yazma)", "day1": {"title": "Edebiyat Atölyesi (Yazma): Masalı Film Şeridine (Storyboard) Dönüştürme", "hours": "2 Ders Saati", "pages": "Sayfa 75 - 77", "steps": ["Ders Kitabı s. 75-77 açılır.", "Mercan Kız masalının 6 kritik sahnesi belirlenir (1. Doğuş, 2. Dev anasının gelişi, 3. Kaçış, 4. Güvercine dönüşme, 5. Şehzadeyle karşılaşma, 6. Mutlu son).", "A4 kâğıtları 6 kutuya bölünür; sahne taslakları çizilir ve altına replikler/anlatıcı metni yazılır."], "elimination": "Kusursuz resim beklentisi yaratmayın; çöp adam, sembolik çizim ve konuşma balonları serbest bırakılır.", "creative": {"title": "Yönetmen Koltuğu (Storyboard)", "desc": "Meslek lisesi öğrencisinin görsel zekâsı harekete geçirilir. Kamera açısı, karakter mimikleri ve konuşma balonlarıyla bir çizgi film sahnesi tasarlanır."}, "checklist": ["6 sahnelik olay akışı belirlendi", "Taslak çizimler ve diyaloglar kâğıda aktarıldı"]}, "day2": {"title": "Film Şeridi Çizimlerinin Tamamlanması ve Sergileme", "hours": "2 Ders Saati", "pages": "Sayfa 77 - 78", "steps": ["Ders Kitabı s. 77-78 uygulanır.", "Film şeritlerinin renklendirilmesi ve diyalog yazımları tamamlanır.", "Sayfa 78'deki kontrol listesiyle ikili akran değerlendirmesi yapılır.", "Yapılan çalışmalar sınıf panosuna asılır ve portfolyolara kaldırılır."], "elimination": "Resmi tatil (29 Ekim) veya yarım güne gelirse dersler hafta içine kaydırılarak telafi edilir.", "creative": {"title": "Sınıf Çizgi Roman Sergisi", "desc": "Öğrenciler sınıfta dolaşarak arkadaşlarının film şeritlerini inceler ve beğendikleri sahneye post-it ile mini yorum iliştirir."}, "checklist": ["Film şeritleri tamamlandı ve renklendirildi", "Sayfa 78 kontrol listesi işaretlendi", "Ürünler panoya asıldı"]}}, {"id": 8, "weekNumber": 8, "dateRange": "02 - 06 Kasım 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "Yansıtma & Tekrar", "day1": {"title": "1. Tema Sonu Yansıtma & Tamlamalar Genel Tekrarı", "hours": "2 Ders Saati", "pages": "Sayfa 79", "steps": ["Ders Kitabı s. 79 'Yansıtma Yazısı' adımları uygulanır.", "Sınıf çemberi yapılarak 'Sözün ezgisi ve masalların bilgeliği bize ne kattı?' sorusu değerlendirilir.", "İsim ve sıfat tamlamalarıyla ilgili tahtada 10 soruluk pratik tarama testi çözülür."], "elimination": "Uzun dil bilgisi ezber tanımları yerine doğrudan cümle içindeki tamlamaları buldurun.", "creative": {"title": "3-2-1 Çıkış Bileti", "desc": "Öğrenciler küçük kâğıtlara: 'Öğrendiğim 3 yeni edebî kavram, merak ettiğim 2 soru, aklımda kalan 1 mısra' yazıp ders çıkışında teslim eder."}, "checklist": ["Yansıtma çemberi yapıldı", "Tamlamalar tarama testi çözüldü", "Çıkış biletleri toplandı"]}, "day2": {"title": "1. Tema Değerlendirme & 1. Yazılı Sınav Provası", "hours": "2 Ders Saati", "pages": "Sayfa 80 - 83", "steps": ["Ders Kitabı s. 80-83'teki seçme test ve klasik sorular çözülür.", "MEB ortak sınav senaryolarına uygun açık uçlu soru tipleri (koşuk tahlili, türküde ahenk, tamlamalar, masal planı) prova edilir."], "elimination": "Kitaptaki tüm soruları yetiştirmeye çalışmayın; sınav formatına uygun 5-6 soru tipini detaylı çözün.", "creative": {"title": "Öğrenci Soru Yazarı", "desc": "Her öğrenci sınavda çıkmasını beklediği 1 klasik soru yazar ve sıra arkadaşına çözdürür."}, "checklist": ["Seçme tema sonu soruları çözüldü", "Sınav prova senaryosu tahtada incelendi"]}}, {"id": 9, "weekNumber": 9, "dateRange": "09 - 13 Kasım 2026", "theme": "1. TEMA: Sözün Ezgisi", "themeColor": "#2563eb", "badge": "1. Ortak Sınav", "day1": {"title": "1. DÖNEM 1. ORTAK YAZILI SINAV UYGULAMASI (%70)", "hours": "2 Ders Saati", "pages": "1. Tema Kazanımları", "steps": ["1. Tema (Koşuk, Koşma, Türkü, Masal, İsim ve Sıfat Tamlamaları) kazanımlarını kapsayan açık uçlu ortak sınav uygulanır.", "Sınav kâğıtlarının toplanması ve sınav süreci analizi yapılır."], "elimination": "Çoktan seçmeli değil, MEB senaryolarına tam uyumlu açık uçlu ve kısa cevaplı sorular kullanılır.", "creative": {"title": "İlham Verici Sınav", "desc": "Sınav kâğıdı başına Atatürk'ün Türk dili, sanat ve mesleki üretim üzerine veciz bir sözü motivasyon alıntısı olarak eklenir."}, "checklist": ["Yazılı sınav kurallara uygun uygulandı", "Cevap anahtarı hazırlandı"]}, "day2": {"title": "Okul Temelli Planlama / Atatürk ve Dil Bilinci", "hours": "2 Ders Saati", "pages": "Okul Temelli Planlama", "steps": ["10 Kasım Atatürk'ü Anma haftası kapsamında Atatürk'ün Türk Dili ve kültürüne verdiği önem, Nutuk'taki hitabet gücü incelenir.", "Kütüphane kaynak taraması veya dijital müze turu gerçekleştirilir."], "elimination": "Ağır tarih dersine dönüştürmeden, Atatürk'ün Türkçeye kazandırdığı terimler ve hitabet gücüne odaklanılır.", "creative": {"title": "Genç Cumhuriyetin Meslek Liselisi", "desc": "'Sözün ve üretimin gücünü mesleğimle nasıl birleştiririm?' konulu 1 paragraflık kısa yansıtma yazdırılır."}, "checklist": ["Atatürk ve dil bilinci konusu işlendi", "Kütüphane / müze incelemesi tamamlandı"]}}, {"id": "ara-tatil", "weekNumber": "ARA TATİL", "dateRange": "16 - 20 Kasım 2026", "theme": "1. Dönem Ara Tatili", "themeColor": "#64748b", "badge": "Tatil", "day1": {"title": "Birinci Dönem Ara Tatili", "hours": "-", "pages": "-", "steps": ["Öğrencilere dinlenmeleri, çevrelerindeki sözlü anlatıları (aile büyüklerinden bir masal veya türkü hikâyesi) dinleyip not etmeleri önerilir."], "elimination": "Ağır tatil ödevleri verilmez.", "creative": {"title": "Aileden Bir Türkü Hikâyesi", "desc": "Tatil dönüşü sınıfta paylaşılmak üzere aile büyüklerinden 1 yerel türkü hikâyesi not etme."}, "checklist": []}, "day2": {"title": "Birinci Dönem Ara Tatili", "hours": "-", "pages": "-", "steps": ["Öğretmenler için zümre değerlendirmesi ve 2. Tema atölye planlaması."], "elimination": "-", "creative": {"title": "Öğretmen Zümre Notu", "desc": "2. Tema podcast ve edebî dönüşüm atölyelerinin takvimlenmesi."}, "checklist": []}}, {"id": 10, "weekNumber": 10, "dateRange": "23 - 27 Kasım 2026", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Gazel & Ritim", "day1": {"title": "2. Temaya Giriş: Kelimelerin Ritmi & Gazel (Necati Bey)", "hours": "2 Ders Saati", "pages": "Sayfa 86 - 92", "steps": ["Ders Kitabı s. 86-92 açılır. Sayfa 86-87'deki ritim görselleri incelenir. 'Rap müzikten klasik şiire ritim nasıl akar?' köprüsü kurulur.", "Necati Bey'in 'Çıkalı göklere âh-ı seherim döne döne...' gazeli seslendirilir.", "Şiirdeki ses akışı, kelime tekrarları ve semazen gibi dönme imgesi fark ettirilir."], "elimination": "Aruz vezninin tefile kalıplarını (fâilâtün vb.) ezberletmeyin; seslerin ve kelimelerin oluşturduğu ahenge odaklanın.", "creative": {"title": "Döne Döne Görsel İmajı", "desc": "Döne döne redifinin çağrıştırdığı dönme dolap, sema ayini, alev girdabı tahtaya çizilir. 'Sizin hayatınızda döne döne tekrar eden duygu nedir?' sorusuna 2 cümlelik cevap yazdırılır."}, "checklist": ["Gazel seslendirildi ve ses akışı incelendi", "Ritim kavramı divan şiiriyle ilişkilendirildi"]}, "day2": {"title": "Gazelin Biçim Özellikleri & Dil Bilgisi (Zamirler)", "hours": "2 Ders Saati", "pages": "Sayfa 92 - 94", "steps": ["Ders Kitabı s. 92-94 incelenir.", "Gazelin beyit sayısı, kafiye düzeni (aa-ba-ca...), matla ve makta/mahlas tahtada şematize edilir.", "Gazeldeki zamirler (ben, sen, o, kimse) bulunur; zamir türleri 15 dakikada özetlenir."], "elimination": "Divan edebiyatının tüm türlerini anlatmayın; sadece gazel nazım şekli üzerinde durun.", "creative": {"title": "Kendi Mahlasını Seçme", "desc": "Divan şairleri gibi her meslek lisesi öğrencisi kendi ilgi ve yeteneğine uygun bir mahlas (Örn: Fennî, Çırakî, Demirî, Bilişimî) seçer ve mahlasını içeren 1 beyit yazar."}, "checklist": ["Beyit, matla, makta ve kafiye örgüsü gösterildi", "Zamirler metin üzerinde bulundu"]}}, {"id": 11, "weekNumber": 11, "dateRange": "30 Kasım - 04 Aralık 2026", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Saf Şiir", "day1": {"title": "Kasideden Saf Şiire: Su Kasidesi & Saf Şiir Anlayışı", "hours": "2 Ders Saati", "pages": "Sayfa 95 - 97, 112 - 113", "steps": ["Ders Kitabı s. 95-97 ve s. 112-113 açılır.", "Fuzûlî'nin Su Kasidesi'nden suyun taşlara vurarak akış ritmini anlatan 2 beyit okunur (Mazmun kavramı).", "Doğrudan Saf Şiir anlayışına (müzikalite, saf estetik, sembolizm) geçilir."], "elimination": "Sayfa 98-111 arasındaki 5 farklı ağır metin analizi elenir; kaside sadece 2 beyitle örneklenip saf şiire geçilir.", "creative": {"title": "Kelime Resmi (Suyun Ritmi)", "desc": "Su Kasidesi'ndeki 'başını taştan taşa vurup gezen su' imgesinden hareketle, cansız bir nesneye insan huyu yükleyen tek bir benzetme cümlesi yazdırılır."}, "checklist": ["Su Kasidesi'nden 2 beyit incelendi", "Saf şiirin temel ilkeleri tahtaya yazıldı"]}, "day2": {"title": "Saf Şiirin Zirvesi: Necip Fazıl ve 'Kaldırımlar'", "hours": "2 Ders Saati", "pages": "Sayfa 114 - 117", "steps": ["Ders Kitabı s. 114-117 açılır.", "Necip Fazıl'ın 'Kaldırımlar' şiiri seslendirilir. Gece, sokak, tekinsizlik, yalnızlık temaları irdelenir.", "14'lü hece ölçüsü (7+7 durak) tahtada gösterilir.", "Metindeki edat ve bağlaçlar (gibi, kadar, ile, ve, yalnız) tespit edilir."], "elimination": "Şairin biyografisindeki siyasi detaylara girilmez; doğrudan şiirdeki yalnızlık ve ses ahengine odaklanılır.", "creative": {"title": "Gece Yürüyüşü Monoloğu", "desc": "'Gece yarısı bomboş ve karanlık bir sokakta tek başınıza yürüdüğünüzü hayal edin. Ne işitiyorsunuz?' Kaldırımlar atmosferinde 4 dizelik serbest/ritimli şiir yazdırılır."}, "checklist": ["Kaldırımlar şiiri seslendirildi ve tahlil edildi", "Edat ve bağlaçlar dizelerden çıkarıldı"]}}, {"id": 12, "weekNumber": 12, "dateRange": "07 - 11 Aralık 2026", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Karşılaştırma", "day1": {"title": "Gazel ile Saf Şiirin Karşılaştırılması", "hours": "2 Ders Saati", "pages": "Sayfa 118 - 121", "steps": ["Ders Kitabı s. 118-121 açılır.", "Necati Bey'in gazeli ile Kaldırımlar şiiri; ölçü (Aruz vs. Hece), nazım birimi (Beyit vs. Dörtlük), tema ve zihniyet yönünden karşılaştırılır.", "Sayfa 119'daki karşılaştırma tablosu doldurulur."], "elimination": "Tablodaki tüm ayrıntı soruları yerine 4 ana eksende (biçim, dil, tema, ritim) karşılaştırma yapılır.", "creative": {"title": "Zamanlar Arası Diyalog", "desc": "Necati Bey ile Necip Fazıl'ı bir kahvehanede şiir ve sokaklar üzerine sohbet ettiren 4 repliklik mini kurgusal diyalog yazdırılır."}, "checklist": ["Gazel ve modern şiir karşılaştırıldı", "Sayfa 119 tablosu tamamlandı"]}, "day2": {"title": "Şiir Ezberleme & Edat-Bağlaç-Ünlem Alıştırmaları", "hours": "2 Ders Saati", "pages": "Sayfa 122 - 123", "steps": ["Ders Kitabı s. 122-123 uygulanır.", "Kaldırımlar şiirinden 1 dörtlük veya gazelden 1 beyit seçilerek ritmik tekrarla ezberleme çalışması yapılır.", "Edat, bağlaç ve ünlemlerle ilgili kısa alıştırma kâğıdı çözülür."], "elimination": "Tüm şiiri ezberletmeyin; öğrencinin beğendiği tek bir dörtlüğü veya beyti seçmesine izin verin.", "creative": {"title": "Duygu Ünlemleri", "desc": "Tahtaya 5 farklı duygu (şaşkınlık, isyan, hüzün, coşku, korku) yazılır; öğrenciler tek bir ünlem ve edatla bu duyguyu mısraya dönüştürür."}, "checklist": ["Dörtlük / beyit ezberleme pratiği yapıldı", "Edat-bağlaç-ünlem alıştırması çözüldü"]}}, {"id": 13, "weekNumber": 13, "dateRange": "14 - 18 Aralık 2026", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Yazma Atölyesi", "day1": {"title": "Edebiyat Atölyesi (Yazma): Bilgilendirici Metni Edebî Metne Dönüştürme", "hours": "2 Ders Saati", "pages": "Sayfa 124 - 126", "steps": ["Ders Kitabı s. 124-126 açılır.", "Bilgilendirici metin (didaktik) ile edebî metin (sanatsal/kurgusal) farkı somut iki örnekle kıyaslanır.", "Dönüştürme yöntemleri: Mecazlar, benzetmeler, öyküleyici anlatım ve duygu katma."], "elimination": "Genel geçer edebiyat metinleri yerine meslek lisesi öğrencisinin kendi bölümünden bir konuyu seçmesine rehberlik edin.", "creative": {"title": "Atölyeden Edebiyata (Mesleki Dönüşüm)", "desc": "Meslek lisesi öğrencisine kendi alanından teknik bir olay seçtirilir (Motorun çalışması, elektrik kısa devresi, bilgisayar virüsü bulaşması). Bu teknik olay bir kahramanın iç mücadelesi gibi edebî taslağa dökülür."}, "checklist": ["Bilgilendirici vs. edebî metin farkı kavratıldı", "Mesleki dönüşüm taslağı hazırlandı"]}, "day2": {"title": "Edebî Metnin Yazılması ve Akran Değerlendirmesi", "hours": "2 Ders Saati", "pages": "Sayfa 126 - 128", "steps": ["Ders Kitabı s. 126-128 uygulanır.", "Öğrenciler hazırladıkları taslakları öyküleyici bir edebî metin olarak kâğıda aktarır.", "Sayfa 128'deki değerlendirme formuyla ikili akran değerlendirmesi yapılır.", "En başarılı 3 mesleki-edebî metin sınıfta alkışlarla okunur."], "elimination": "Yazım kurallarında katı cezalandırma yerine yaratıcı ifade gücünü öne çıkarın.", "creative": {"title": "Ustanın Günlüğü", "desc": "Yazılan metinler 'Meslek Liseli Kalemler' başlığıyla sınıf panosunda sergilenir."}, "checklist": ["Edebî metinler tamamlandı", "Sayfa 128 akran formu dolduruldu", "Yazılar panoya asıldı"]}}, {"id": 14, "weekNumber": 14, "dateRange": "21 - 25 Aralık 2026", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Söyleşi Tahlili", "day1": {"title": "Dinleme/İzleme: Çok Modlu Metin - Edebî Söyleşi (Mülakat)", "hours": "2 Ders Saati", "pages": "Sayfa 129 - 133", "steps": ["Ders Kitabı s. 129-133 açılır. Söyleşi (mülakat/sohbet) türünün samimiyeti ve dil özellikleri anlatılır.", "Sayfa 131'deki karekoddan edebî söyleşi videosu dinletilir/izletilir.", "Konuşmacının beden dili, ses tonu, içtenliği ve mülakat adabı incelenir."], "elimination": "Uzun söyleşi metinlerini okutmayın; videoyu izletip jest, mimik ve soru-cevap dinamiğine odaklanın.", "creative": {"title": "Soru Mimarı", "desc": "'Tarihten veya günümüzden bir yazarla karşılaşsanız ona soracağınız ilk ve en can alıcı soru ne olurdu?' sorusuna 1 mülakat sorusu yazdırılır."}, "checklist": ["Söyleşi videosu izletildi", "Mülakat teknikleri ve beden dili çözümlendi"]}, "day2": {"title": "Açık ve Örtük İletiler & Podcast Grupları", "hours": "2 Ders Saati", "pages": "Sayfa 134 - 136", "steps": ["Ders Kitabı s. 134-136 incelenir. Söyleşideki doğrudan mesajlar ile örtük iletiler çözümlenir.", "15. haftadaki Podcast görevi için 2'şerli öğrenci grupları oluşturulur."], "elimination": "Sayfa 137-145 arasındaki 'Suyu Arayan Adam' vb. uzun metin karşılaştırmaları elenir.", "creative": {"title": "Podcast Kanal Kimliği", "desc": "Gruplar podcast kanallarına özgün bir isim ve slogan bulur (Örn: 'Kelimelerin Nabzı', 'Atölyeden Dizelere', '10-Teknik Frekansı')."}, "checklist": ["Açık ve örtük iletiler bulundu", "Podcast çalışma grupları kuruldu"]}}, {"id": 15, "weekNumber": 15, "dateRange": "28 Aralık 2026 - 01 Ocak 2027", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Podcast Tasarımı", "day1": {"title": "Edebiyat Atölyesi (Konuşma): Podcast Tasarımı ve Şahsiyet Seçimi", "hours": "2 Ders Saati", "pages": "Sayfa 146 - 148", "steps": ["Ders Kitabı s. 146-148 açılır. Podcast yapısı: Jingle/giriş müziği, samimi sunucu dili, şairin hayatından ilginç anektod, şiir alıntısı ve kapanış.", "Gruplar iz bırakmış bir edebî şahsiyeti seçer (Yunus Emre, Âşık Veysel, Necip Fazıl, Nazım Hikmet, Cahit Sıtkı vb.). Kısa kaynak taraması yapılır."], "elimination": "Ağır akademik biyografi yerine şairin ilgi çekici bir hayat kesiti veya meşhur bir mısrasının hikâyesine odaklanın.", "creative": {"title": "Radyo Spikeri Akış Metni", "desc": "2-3 dakikalık podcast için tam akış metni yazdırılır: Giriş (30 sn), Gelişme/Şairin Dünyası (90 sn), Kapanış (30 sn)."}, "checklist": ["Tanıtılacak edebî şahsiyet belirlendi", "Podcast akış metni taslağı yazıldı"]}, "day2": {"title": "Podcast Metin Revizyonu ve Seslendirme Provası", "hours": "2 Ders Saati", "pages": "Sayfa 148 - 149", "steps": ["Ders Kitabı s. 148-149 incelenir.", "Hazırlanan metinler öğretmen kontrolünden geçer; vurgu, tonlama ve telaffuz hataları düzeltilir.", "Telefon ses kaydedicisiyle deneme kayıtları yapılır."], "elimination": "1 Ocak Cuma tatiline denk gelirse dersler hafta içine kaydırılarak telafi edilir.", "creative": {"title": "Stüdyo Provası", "desc": "Öğrenciler telefon kulaklığıyla deneme kaydı alıp hız ve ses seviyesini ayarlar."}, "checklist": ["Spiker metinleri kontrol edildi", "Kulaklıkla deneme kaydı alındı"]}}, {"id": 16, "weekNumber": 16, "dateRange": "04 - 08 Ocak 2027", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "Podcast Kayıt & Tekrar", "day1": {"title": "Podcast Ses Kayıtlarının Tamamlanması ve Dinletisi", "hours": "2 Ders Saati", "pages": "Sayfa 148 - 149", "steps": ["Gruplar sınıfın sessiz köşelerinde veya kütüphanede telefon ses kaydedicisiyle nihai podcast kayıtlarını tamamlar.", "Kayıtlar akıllı tahtaya aktarılarak sınıfta dinlenir.", "Kitap s. 149'daki formla değerlendirme yapılır.", "★ NOT: Bu dijital ürün 2. Dönem Konuşma Sınavı (%15) olarak notlandırılır."], "elimination": "Sınıfta tek tek öğrenci kaldırıp konuşma sınavı yapmayın; podcast ses ürünü doğrudan not baremidir.", "creative": {"title": "Edebiyat Frekansı", "desc": "En iyi 3 podcast kaydı seçilerek okulun dijital panosunda veya bülteninde paylaşılmak üzere arşivlenir."}, "checklist": ["Tüm grupların podcast kayıtları teslim alındı", "Tahtada ortak dinleti yapıldı", "2. Konuşma sınavı notu işlendi"]}, "day2": {"title": "2. Tema Sonu Genel Tekrarı & 2. Sınav Provası", "hours": "2 Ders Saati", "pages": "Sayfa 150 - 153", "steps": ["Ders Kitabı s. 150-153'teki seçme sorular çözülür.", "Gazel, Saf Şiir, Söyleşi, Zamirler, Edat-Bağlaç-Ünlem konuları açık uçlu soru çözümleriyle prova edilir."], "elimination": "Karmaşık aruz sorularını sınav kapsamına almayın; temel yapı ve anlam unsurlarını prova edin.", "creative": {"title": "Sınav Pusulası", "desc": "Tahtaya sınavda çıkacak 5 temel konu yazılır; öğrenciler her konunun şifre kelimesini defterlerine not eder."}, "checklist": ["2. tema değerlendirme soruları çözüldü", "2. yazılı sınav provası tamamlandı"]}}, {"id": 17, "weekNumber": 17, "dateRange": "11 - 15 Ocak 2027", "theme": "2. TEMA: Kelimelerin Ritmi", "themeColor": "#0d9488", "badge": "2. Ortak Sınav", "day1": {"title": "1. DÖNEM 2. ORTAK YAZILI SINAV UYGULAMASI (%70)", "hours": "2 Ders Saati", "pages": "2. Tema Kazanımları", "steps": ["2. Tema ağırlıklı, MEB senaryolarına uygun açık uçlu 2. Ortak Yazılı Sınav uygulanır.", "Sınav kâğıtlarının teslim alınması ve genel değerlendirme."], "elimination": "Tüm senaryoların açık uçlu ve net anlaşılır olmasına dikkat edilir.", "creative": {"title": "Hızlı Sınav Çözümü", "desc": "Sınav sonrası ilk 10 dakikada öğrencilerin en çok merak ettiği 2 sorunun çözümü tahtada gösterilir."}, "checklist": ["2. Yazılı sınav uygulandı", "Kâğıtlar teslim alındı"]}, "day2": {"title": "Dinleme Sınavı Uygulaması (%15) ve Not Girişleri", "hours": "2 Ders Saati", "pages": "Dinleme Sınavı", "steps": ["Sınıfta 3 dakikalık bir edebî söyleşi kaydı dinletilerek 4 soruluk Dinleme Sınavı uygulanır (%15).", "Formül uygulanır: (Yazılı x 0.70) + (Dinleme x 0.15) + (Podcast x 0.15).", "Sınav notları e-Okul sistemine girilir."], "elimination": "Dinleme sınavı için uzun karmaşık metinler yerine 3 dakikalık net bir ses kaydı tercih edilir.", "creative": {"title": "Öğrenme Aynası", "desc": "Öğrenciler sınav kâğıtlarını inceleyerek gelişim alanlarını belirler."}, "checklist": ["Dinleme sınavı uygulandı", "3 bileşenli dönem sınav notu hesaplandı", "e-Okul not girişleri tamamlandı"]}}, {"id": 18, "weekNumber": 18, "dateRange": "18 - 22 Ocak 2027", "theme": "Dönem Sonu & Portfolyo", "themeColor": "#6366f1", "badge": "Portfolyo Sergisi", "day1": {"title": "Okul Temelli Planlama: Dönem Sonu Ürün Sergisi", "hours": "2 Ders Saati", "pages": "Okul Temelli Planlama", "steps": ["Yıllık plan doğrultusunda dönem sonu değerlendirmesi yapılır.", "Dönem boyunca üretilen Masal Film Şeritleri, Yaratıcı Edebî Metinler ve Şiir Dinletisi fotoğrafları sınıf ve okul panosunda sergilenir."], "elimination": "Resmiyetten uzak, öğrencilerin gurur duyacağı görsel bir sergiye dönüştürülür.", "creative": {"title": "Meslek Liseli Üretiyor Gurur Köşesi", "desc": "'Bu dönem bir şair gibi hissettim, bir çizer gibi tasarladım, bir spiker gibi konuştum' sergisi düzenlenir."}, "checklist": ["Sınıf panosu ve sergi düzenlendi", "Öğrenci ürünleri sergilendi"]}, "day2": {"title": "Portfolyo Kapanışı, Öz Değerlendirme ve Yarıyıl Rehberliği", "hours": "2 Ders Saati", "pages": "Dönem Kapanışı", "steps": ["Öğrenci gelişim dosyaları (portfolyo) tamamlanır ve teslim alınır.", "Yarıyıl tatili için meslek lisesi öğrencilerine dönük sürükleyici kitap ve film öneri listesi dağıtılır."], "elimination": "Tatil için kuru kitap özeti ödevi verilmez; sevecekleri 1 film ve 1 sürükleyici roman önerilir.", "creative": {"title": "Geleceğe Mektup", "desc": "'2. Dönem edebiyat dersinde kendime sözüm...' başlıklı tek cümlelik taahhüt kartı yazdırılır."}, "checklist": ["Gelişim dosyaları toplandı", "Öz değerlendirme formları imzalandı", "Yarıyıl kapanışı yapıldı"]}}];
+
+    // State
+    let currentWeekIndex = 0;
+    let currentDayMode = 'day1'; // 'day1', 'day2', 'both'
+
+    // DOM Elements
+    const weeksNav = document.getElementById('weeksNav');
+    const whBadge = document.getElementById('whBadge');
+    const whTitle = document.getElementById('whTitle');
+    const whDates = document.getElementById('whDates');
+    const prevWeekBtn = document.getElementById('prevWeekBtn');
+    const nextWeekBtn = document.getElementById('nextWeekBtn');
+    const daySelector = document.getElementById('daySelector');
+    const dayContentArea = document.getElementById('dayContentArea');
+    const themeBtn = document.getElementById('themeBtn');
+    const todayBtn = document.getElementById('todayBtn');
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearchModal = document.getElementById('closeSearchModal');
+    const searchResultsList = document.getElementById('searchResultsList');
+    const toast = document.getElementById('toast');
+    const infoModal = document.getElementById('infoModal');
+    const closeInfoModal = document.getElementById('closeInfoModal');
+    const infoModalTitle = document.getElementById('infoModalTitle');
+    const infoModalBody = document.getElementById('infoModalBody');
+
+    // Init Theme
+    const savedTheme = localStorage.getItem('tde_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('tde_theme', next);
+    });
+
+    // Build Weeks Navigation Pills
+    function renderWeekPills() {
+      weeksNav.innerHTML = '';
+      WEEKS_DATA.forEach((w, idx) => {
+        const pill = document.createElement('button');
+        pill.className = 'week-pill' + (idx === currentWeekIndex ? ' active' : '');
+        pill.setAttribute('aria-label', w.weekNumber + '. Hafta');
+        
+        const shortDate = w.dateRange.split('-')[0].trim();
+        pill.innerHTML = `
+          <span class="wp-num">${typeof w.weekNumber === 'number' ? w.weekNumber + '.H' : 'Tatil'}</span>
+          <span class="wp-date">${shortDate}</span>
+        `;
+        
+        pill.addEventListener('click', () => {
+          currentWeekIndex = idx;
+          renderView();
+          scrollPillIntoView(pill);
+        });
+        weeksNav.appendChild(pill);
+      });
+    }
+
+    function scrollPillIntoView(pill) {
+      pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    // Render Main View
+    function renderView() {
+      const w = WEEKS_DATA[currentWeekIndex];
+      
+      // Update Hero Card
+      whBadge.textContent = w.theme;
+      whBadge.style.backgroundColor = w.themeColor || '#1B365D';
+      whTitle.textContent = typeof w.weekNumber === 'number' ? `${w.weekNumber}. Hafta` : w.weekNumber;
+      whDates.textContent = `📅 ${w.dateRange}`;
+
+      // Update Nav Pills Active State
+      const pills = weeksNav.querySelectorAll('.week-pill');
+      pills.forEach((p, idx) => {
+        if (idx === currentWeekIndex) {
+          p.classList.add('active');
+          scrollPillIntoView(p);
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      // Render Day Content
+      let html = '';
+      if (currentDayMode === 'day1' || currentDayMode === 'both') {
+        html += renderDayCard(w, 'day1', '1. GÜN');
+      }
+      if (currentDayMode === 'day2' || currentDayMode === 'both') {
+        html += renderDayCard(w, 'day2', '2. GÜN');
+      }
+      dayContentArea.innerHTML = html;
+
+      // Bind Checklist Events
+      bindChecklistEvents();
+    }
+
+    function renderDayCard(week, dayKey, dayLabel) {
+      const day = week[dayKey];
+      if (!day) return '';
+
+      const checkStorageKey = `check_${week.id}_${dayKey}`;
+      const savedChecks = JSON.parse(localStorage.getItem(checkStorageKey) || '{}');
+
+      let stepsHtml = day.steps.map(s => `<li>${s}</li>`).join('');
+      
+      let eliminationHtml = '';
+      if (day.elimination && day.elimination !== '-') {
+        eliminationHtml = `
+          <div class="elimination-box">
+            <div class="eb-title">✂️ ATLANACAK / SADELEŞTİRME:</div>
+            <div>${day.elimination}</div>
+          </div>
+        `;
+      }
+
+      let creativeHtml = '';
+      if (day.creative && day.creative.title && day.creative.title !== '-') {
+        const copyText = `${day.creative.title}: ${day.creative.desc}`.replace(/"/g, '&quot;');
+        creativeHtml = `
+          <div class="creative-box">
+            <div class="cb-title">
+              <span>💡 ${day.creative.title}</span>
+              <button class="copy-btn" onclick="copyCreativeText(this, \`${copyText}\`)">📋 Kopyala</button>
+            </div>
+            <div class="cb-desc">${day.creative.desc}</div>
+          </div>
+        `;
+      }
+
+      let checklistHtml = '';
+      if (day.checklist && day.checklist.length > 0) {
+        const items = day.checklist.map((item, idx) => {
+          const isDone = !!savedChecks[idx];
+          return `
+            <label class="check-item ${isDone ? 'done' : ''}">
+              <input type="checkbox" data-key="${checkStorageKey}" data-idx="${idx}" ${isDone ? 'checked' : ''}>
+              <span>${item}</span>
+            </label>
+          `;
+        }).join('');
+
+        checklistHtml = `
+          <div class="section-label">✅ Ders İçi Takip Listesi</div>
+          <div class="checklist-box">${items}</div>
+        `;
+      }
+
+      return `
+        <div class="day-card">
+          <div class="dc-header">
+            <div>
+              <div style="font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-bottom: 2px;">${dayLabel}</div>
+              <div class="dc-title">${day.title}</div>
+            </div>
+            <div class="dc-hours-badge">${day.hours}</div>
+          </div>
+
+          <div class="pages-pill">
+            <span>📖</span>
+            <span>${day.pages}</span>
+          </div>
+
+          <div class="section-label">📌 Konunun İşlenişi ve Kitap Adımları</div>
+          <ul class="steps-list">${stepsHtml}</ul>
+
+          ${eliminationHtml}
+          ${creativeHtml}
+          ${checklistHtml}
+        </div>
+      `;
+    }
+
+    function bindChecklistEvents() {
+      const checkboxes = dayContentArea.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', (e) => {
+          const key = cb.getAttribute('data-key');
+          const idx = cb.getAttribute('data-idx');
+          const label = cb.closest('.check-item');
+          
+          let store = JSON.parse(localStorage.getItem(key) || '{}');
+          if (cb.checked) {
+            store[idx] = true;
+            label.classList.add('done');
+          } else {
+            delete store[idx];
+            label.classList.remove('done');
+          }
+          localStorage.setItem(key, JSON.stringify(store));
+        });
+      });
+    }
+
+    window.copyCreativeText = function(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Yaratıcı öneri panoya kopyalandı!');
+      }).catch(() => {
+        showToast('Kopyalandı!');
+      });
+    };
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    // Day Selector Events
+    daySelector.querySelectorAll('.day-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        daySelector.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentDayMode = btn.getAttribute('data-day');
+        renderView();
+      });
+    });
+
+    // Arrow Nav Events
+    prevWeekBtn.addEventListener('click', () => {
+      if (currentWeekIndex > 0) {
+        currentWeekIndex--;
+        renderView();
+      }
+    });
+
+    nextWeekBtn.addEventListener('click', () => {
+      if (currentWeekIndex < WEEKS_DATA.length - 1) {
+        currentWeekIndex++;
+        renderView();
+      }
+    });
+
+    // Today / Current Week Auto-Calculation
+    todayBtn.addEventListener('click', () => {
+      const now = new Date();
+      // Default to 1st week if before school starts
+      let targetIdx = 0;
+      // Simple date mapping logic
+      const m = now.getMonth(); // 0-indexed (8=Sept, 9=Oct, 10=Nov, 11=Dec, 0=Jan)
+      const d = now.getDate();
+      
+      // If current month is Sept-Jan, try to map:
+      if (m === 8) { // Sept
+        targetIdx = d < 21 ? 0 : (d < 28 ? 1 : 2);
+      } else if (m === 9) { // Oct
+        targetIdx = d < 5 ? 2 : (d < 12 ? 3 : (d < 19 ? 4 : (d < 26 ? 5 : 6)));
+      } else if (m === 10) { // Nov
+        targetIdx = d < 9 ? 7 : (d < 16 ? 8 : (d < 23 ? 9 : 10));
+      } else if (m === 11) { // Dec
+        targetIdx = d < 7 ? 11 : (d < 14 ? 12 : (d < 21 ? 13 : (d < 28 ? 14 : 15)));
+      } else if (m === 0) { // Jan
+        targetIdx = d < 11 ? 16 : (d < 18 ? 17 : 18);
+      }
+
+      currentWeekIndex = Math.min(targetIdx, WEEKS_DATA.length - 1);
+      renderView();
+      showToast(`${WEEKS_DATA[currentWeekIndex].weekNumber}. Haftaya geçildi`);
+    });
+
+    // Search Feature
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (query.length > 0) {
+        searchClear.style.display = 'block';
+        performSearch(query);
+      } else {
+        searchClear.style.display = 'none';
+        searchOverlay.style.display = 'none';
+      }
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchClear.style.display = 'none';
+      searchOverlay.style.display = 'none';
+    });
+
+    closeSearchModal.addEventListener('click', () => {
+      searchOverlay.style.display = 'none';
+    });
+
+    function performSearch(query) {
+      const matches = [];
+      WEEKS_DATA.forEach((w, wIdx) => {
+        ['day1', 'day2'].forEach((dKey, dIdx) => {
+          const day = w[dKey];
+          if (!day) return;
+          const searchStr = `${day.title} ${day.pages} ${day.steps.join(' ')} ${day.elimination} ${day.creative ? day.creative.title + ' ' + day.creative.desc : ''}`.toLowerCase();
+          if (searchStr.includes(query)) {
+            matches.push({
+              weekIndex: wIdx,
+              weekNumber: w.weekNumber,
+              dayLabel: dIdx === 0 ? '1. GÜN' : '2. GÜN',
+              dayMode: dKey,
+              title: day.title,
+              pages: day.pages
+            });
+          }
+        });
+      });
+
+      if (matches.length > 0) {
+        document.getElementById('searchResultCount').textContent = `${matches.length} Sonuç Bulundu`;
+        searchResultsList.innerHTML = matches.map(m => `
+          <div class="src-item" onclick="jumpToSearchResult(${m.weekIndex}, '${m.dayMode}')">
+            <div class="src-item-title">${m.weekNumber}. Hafta • ${m.dayLabel}: ${m.title}</div>
+            <div class="src-item-snippet">📖 ${m.pages}</div>
+          </div>
+        `).join('');
+        searchOverlay.style.display = 'block';
+      } else {
+        document.getElementById('searchResultCount').textContent = 'Sonuç Bulunamadı';
+        searchResultsList.innerHTML = '<p style="font-size:0.85rem; color:var(--text-muted); padding:10px;">Aradığınız kelimeye ait bir konu bulunamadı.</p>';
+        searchOverlay.style.display = 'block';
+      }
+    }
+
+    window.jumpToSearchResult = function(wIdx, dKey) {
+      currentWeekIndex = wIdx;
+      currentDayMode = dKey;
+      daySelector.querySelectorAll('.day-btn').forEach(b => {
+        if (b.getAttribute('data-day') === dKey) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      searchOverlay.style.display = 'none';
+      renderView();
+    };
+
+    // Bottom Navigation Handlers
+    document.getElementById('navHome').addEventListener('click', () => {
+      infoModal.style.display = 'none';
+    });
+
+    document.getElementById('navGradeFormula').addEventListener('click', () => {
+      infoModalTitle.textContent = "MEB Dönem Puanı Hesaplama Formülü";
+      infoModalBody.innerHTML = `
+        <div style="background: var(--primary-subtle); padding: 12px; border-radius: 8px; margin-bottom: 12px; font-weight: bold; color: var(--primary);">
+          Dönem Puanı = (Yazılı Sınav × 0,70) + (Dinleme Sınavı × 0,15) + (Konuşma Sınavı × 0,15)
+        </div>
+        <p><strong>1. Sınav Dönemi (9. Hafta):</strong></p>
+        <ul style="padding-left: 18px; margin-bottom: 10px;">
+          <li>Yazılı Sınav (%70): Açık uçlu ortak sınav.</li>
+          <li>Dinleme Sınavı (%15): 6. haftadaki "Mercan Kız" masal tahlili.</li>
+          <li>Konuşma Sınavı (%15): 5. haftada yapılan <em>Şiir Dinletisi</em> sunumu.</li>
+        </ul>
+        <p><strong>2. Sınav Dönemi (17. Hafta):</strong></p>
+        <ul style="padding-left: 18px; margin-bottom: 10px;">
+          <li>Yazılı Sınav (%70): 2. Tema ortak sınavı.</li>
+          <li>Dinleme Sınavı (%15): 14. haftadaki Edebî Söyleşi tahlili.</li>
+          <li>Konuşma Sınavı (%15): 16. haftada üretilen <em>Edebî Şahsiyet Podcasti</em>.</li>
+        </ul>
+        <div style="background: var(--emerald-subtle); padding: 10px; border-radius: 6px; font-size: 0.8rem; color: var(--emerald);">
+          ✓ Bu sistem sayesinde sınıfta ayrıyeten tek tek öğrenci dinleyip konuşma sınavı yükü çekmezsiniz; atölye ürünleri doğrudan resmi not baremidir.
+        </div>
+      `;
+      infoModal.style.display = 'block';
+    });
+
+    document.getElementById('navSummary').addEventListener('click', () => {
+      infoModalTitle.textContent = "Kitap Etkinlik Eleme Özeti";
+      infoModalBody.innerHTML = `
+        <p>Meslek Lisesi ve 4 saatlik ders yapısına göre kitaptan ayıklananlar:</p>
+        <ul style="padding-left: 18px; margin-top: 8px; font-size: 0.82rem; line-height: 1.6;">
+          <li><strong>s. 22-25:</strong> Ağır Venn şemaları ve Lisan şiiri analizi elendi (Tahtada 4 ana farkla özetlendi).</li>
+          <li><strong>s. 31-38:</strong> Sagu, Şarkımız vb. 4 farklı yan metin analizi elendi.</li>
+          <li><strong>s. 47-53:</strong> Uzun Çayır Çimen varyant tabloları atlandı (Sözlü anlatıldı).</li>
+          <li><strong>s. 67-68:</strong> Gezi yazısı ile masal karşılaştırması elendi.</li>
+          <li><strong>s. 98-111:</strong> Kaside ve 5 farklı divan şiiri yan metin analizi elendi (Su Kasidesi'nden sadece 2 beyit alındı).</li>
+          <li><strong>s. 137-145:</strong> Suyu Arayan Adam karşılaştırma metinleri elendi.</li>
+        </ul>
+      `;
+      infoModal.style.display = 'block';
+    });
+
+    document.getElementById('navPrint').addEventListener('click', () => {
+      window.print();
+    });
+
+    closeInfoModal.addEventListener('click', () => {
+      infoModal.style.display = 'none';
+    });
+
+    // Keyboard navigation (desktop support)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevWeekBtn.click();
+      if (e.key === 'ArrowRight') nextWeekBtn.click();
+    });
+
+    // Register Service Worker for Offline & PWA support
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration skipped:', err));
+      });
+    }
+
+    // Initialize
+    renderWeekPills();
+    renderView();
+  </script>
+</body>
+</html>

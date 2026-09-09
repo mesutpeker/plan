@@ -1,0 +1,16 @@
+{
+  "name": "10. Sınıf TDE Meslek Lisesi Kılavuzu",
+  "short_name": "TDE10 Kılavuz",
+  "description": "10. Sınıf Türk Dili ve Edebiyatı Meslek Lisesi 1. Dönem Mobil Ders Kılavuzu",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1B365D",
+  "theme_color": "#1B365D",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231B365D'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white'>📖</text></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
